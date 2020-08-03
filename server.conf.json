@@ -1,0 +1,13 @@
+{
+  "serverUrl": "https://jycjf63737.stage.lithium.com",
+  "pluginToken": "895a7c5d-8276-49a0-89a3-36dc6e650d81",
+  "allowStudioOverrides": true,
+  "strictMode": false,
+  "dryRun": false,
+  "verbose": false,
+  "force": false,
+  "pluginPoints": [],
+  "useResponsiveConfigsFromServer": true,
+  "useLocalCompile": true,
+  "skipTemplateValidation": false
+}
