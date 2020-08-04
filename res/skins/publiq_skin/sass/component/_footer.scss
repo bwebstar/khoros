@@ -1,0 +1,31 @@
+// Contents copied from: redsail_skin/sass/component/_footer.scss
+// Contents copied from: theme_base/sass/component/_footer.scss
+footer {
+    background-color: #1c2023;
+    color: $theme-color-highlight;
+    font-size: $theme-type-size-xsmall;
+    padding: 15px 0;
+
+    .container {
+        @extend %responsive-fixed-width;
+        padding: 0 $theme-grid-gutter-side/2;
+
+        @media (min-width: $screen-sm-min) {
+            padding: 0 $theme-grid-gutter-side;
+        }
+
+        .footer-center {
+            padding: 10px 8px;
+            text-align: center;
+            width: 100%;
+
+            a {
+                color: $theme-color-highlight;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

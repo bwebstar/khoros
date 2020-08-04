@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quilt layout="two-column-main-side-landing" nestable="false" disableTopCssClass="false">
+  <add to="common-footer">
+    <component id="quilt:Footer"/>
+  </add>
+  <add to="engagement">
+    <component id="theme-lib.latest-blogs"/>
+  </add>
+  <add to="side-content">
+    <component id="theme-lib.featured-topics"/>
+    <component id="theme-lib.explore-categories"/>
+    <component id="community.widget.admin-links"/>
+    <component id="kudos.widget.authors-leaderboard"/>
+  </add>
+  <add to="main-content">
+    <component id="theme-lib.load-more-messages"/>
+  </add>
+  <add to="common-header">
+    <component id="quilt:Header"/>
+  </add>
+  <add to="sub-header-main" for="Header">
+    <component id="quilt:CommunityHero"/>
+  </add>
+  <remove from="breadcrumb" for="Header">
+    <component id="common.widget.breadcrumb"/>
+  </remove>
+  <remove from="sub-header-main" for="Header">
+    <component id="common.widget.page-title"/>
+    <component id="common.widget.search-form"/>
+  </remove>
+</quilt>

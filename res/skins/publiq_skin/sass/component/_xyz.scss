@@ -1,0 +1,43 @@
+// Contents copied from: redsail_skin/sass/component/_xyz.scss
+// Contents copied from: theme_base/sass/component/_xyz.scss
+.lia-component-solutions-widget-accepted-solutions-leaderboard-taplet {
+    .UserList thead {
+        display: none;
+    }
+
+    .lia-view-all {
+        text-align: center;
+        margin-top: 28px;
+
+        a.lia-link-navigation {
+            position: relative;
+            font: inherit;
+            padding: 0;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+}
+
+.lia-quilt-column-right.lia-quilt-column-side-content {
+    .lia-view-all {
+        text-align: left;
+        margin-top: 28px;
+
+        a.lia-link-navigation {
+            position: relative;
+            font: inherit;
+            padding: 0;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    .MessageListTaplet .lia-panel-content>.lia-list-standard {
+        margin: -15px;
+    }
+}

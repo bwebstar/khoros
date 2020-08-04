@@ -1,0 +1,75 @@
+== .html_content ==
+<html>
+	<head>
+		<title>
+			An invitation to visit $community.title 
+		</title>
+	</head>
+	<body>
+We've sent this email to you on the behalf of $fromName from the $community.title. Here's what $fromName had to say:
+		
+#if ($user_note != "")
+               <p style="text-indent: 50px;">
+		$user_note
+		</p>
+		<p>
+#end
+		
+		#if ($message != "")
+                  <p>
+			<a href="${emailUrls.getMessagePageUrl($message)}">${emailUrls.getMessagePageUrl($message)}</a>
+		#else
+<a href="${emailUrls.getBoardPageUrl($board)}">${emailUrls.getBoardPageUrl($board)}</a>	
+               </p>	
+		#end		
+		<p>
+			<i>
+				Your ${community.title} Team
+			</i>
+		</p>
+		<font size=-1>
+			$fromName at $community.title sent this message to $recipientAddress.
+		</p>
+		<p>
+			Don't want to receive emails from us? Just click <a href="${emailUrls.getTapestryUrl("/user/RemoveUserEmailPage/invitation-source/$invitedUserPathValue/mail-message-tracking/$trackingKey")}">here</a>.
+		</p>
+		<p>
+			## We are serious about protecting your privacy. 
+			## Click <a href="${emailUrls.getCommunityUrl("/privacy_policy")}">here</a> to review our privacy policy. 
+		</font>
+	</body>
+</html>
+
+
+
+
+
+== .subject ==
+An invitation to visit $community.title
+== .text_content ==
+$fromName ($fromAddress) at $community.title thinks this is fascinating, helpful, interesting, useful, infuriating, thought-provoking, or just downright cool. 
+We hope you will visit $community.title and check it out for yourself.
+
+${emailUrls.getMessagePageUrl($message)}
+
+#if ($user_note != "")
+$fromName says:
+
+$user_note
+
+#end
+
+We hope you will visit us soon!
+
+Your ${community.title} Team
+
+
+$fromName at $community.title sent this message to $recipientAddress.
+
+Don't want to receive emails from us?  Just click this link: ${emailUrls.getTapestryUrl("/user/RemoveUserEmailPage/invitation-source/$invitedUserPathValue/mail-message-tracking/$trackingKey")}.
+## We are serious about protecting your privacy.
+## Click ${emailUrls.getCommunityUrl("/privacy_policy")} to review our privacy policy.
+
+
+
+

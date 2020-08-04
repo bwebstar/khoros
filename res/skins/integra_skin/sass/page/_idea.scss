@@ -1,0 +1,49 @@
+// Contents copied from: redsail_skin/sass/page/_idea.scss
+// Contents copied from: theme_base/sass/page/_idea.scss
+#lia-body.IdeaExchangePage,
+#lia-body.IdeaPage {
+    .lia-byline-wrapper .lia-status:after {
+        content: "";
+    }
+}
+
+#lia-body.IdeaPage {
+    .lia-message-view-idea-message.lia-message-view-idea-message {
+
+
+        .LabelsList {
+            li {
+                display: none;
+
+                &.label {
+                    display: inline-block;
+                    padding-bottom: 0;
+                }
+            }
+
+
+        }
+    }
+}
+
+#lia-body.IdeaExchangePage .lia-content {
+    .lia-button-image-kudos>div .kudos-link {
+        border-radius: 0;
+        left: 0;
+        margin-left: 0;
+    }
+}
+
+.IdeaExchangePage#lia-body .lia-content .lia-component-menu-bar.lia-menu-bar-top .default-menu-option:after,
+.IdeaExchangePage#lia-body .lia-content .lia-component-menu-bar.lia-menu-bar-top .default-menu-option:hover:after,
+.IdeaExchangePage#lia-body .lia-content .lia-component-menu-bar.lia-menu-bar-top .default-menu-option:active:after,
+.IdeaExchangePage#lia-body .lia-content .lia-component-menu-bar.lia-menu-bar-top .default-menu-option:focus:after {
+    line-height: 1;
+}
+
+.IdeaExchangePage#lia-body .lia-content .lia-component-menu-bar.lia-menu-bar-top .default-menu-option,
+.IdeaExchangePage#lia-body .lia-content .lia-component-menu-bar.lia-menu-bar-top .default-menu-option:hover,
+.IdeaExchangePage#lia-body .lia-content .lia-component-menu-bar.lia-menu-bar-top .default-menu-option:active,
+.IdeaExchangePage#lia-body .lia-content .lia-component-menu-bar.lia-menu-bar-top .default-menu-option:focus {
+    font-size: $theme-type-size-xsmall;
+}

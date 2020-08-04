@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Icon_256_accepted-solutions</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M166.156047,56.7111075 C166.546671,56.3204834 167.067504,56.1251714 167.718543,56.1251714 C168.369582,56.1251714 168.955518,56.3204834 169.476352,56.7111075 L174.945089,62.3751565 C175.465922,62.7657805 175.726337,63.2866136 175.726337,63.9376527 C175.726337,64.5886919 175.465922,65.174628 174.945089,65.695461 L116.351478,124.289071 C115.960854,124.679695 115.440021,124.875007 114.788982,124.875007 C114.137943,124.875007 113.552007,124.679695 113.031174,124.289071 L87.0546731,98.1172587 C86.53384,97.7266347 86.2734249,97.2058016 86.2734249,96.5547625 C86.2734249,95.9037234 86.53384,95.3177872 87.0546731,94.7969542 L92.52341,89.3282172 C93.0442431,88.8073841 93.6301792,88.5469691 94.2812183,88.5469691 C94.9322575,88.5469691 95.4530905,88.8073841 95.8437146,89.3282172 L114.788982,108.273485 L166.156047,56.7111075 Z" id="path-1"></path>
+        <filter x="-4.5%" y="-5.8%" width="112.3%" height="123.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="3" dy="8" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 1.3004098e-05   0 0 0 0 3.0574869e-05   0 0 0 0 0.307984054  0 0 0 0.4 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Icon_256_accepted-solutions" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#2525AC" stroke-width="6" fill="#FFFFFF" cx="128" cy="128" r="125"></circle>
+        <g id="Group-2" transform="translate(13.000000, 13.000000)">
+            <circle id="Oval-Copy" fill="#3A3ACA" cx="115" cy="115" r="115"></circle>
+            <path d="M115,230 C178.512746,230 230,178.512746 230,115 C230,73.5761418 208.098239,37.267714 175.242985,17.0229849 C118.984375,48.8710938 48.1679687,102.832031 5.4091107,149.956352 C20.2033247,196.37725 63.6751553,230 115,230 Z" id="Oval-Copy-2" fill="#2525AC"></path>
+        </g>
+        <text id="99999" font-family="Montserrat-SemiBold, Montserrat" font-size="54" font-weight="500" line-spacing="70" fill="#FFFFFF" text-anchor="middle">
+            <tspan x="128" y="197">99999</tspan>
+        </text>
+        <g id="c" fill-rule="nonzero">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <use fill="#FFFFFF" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

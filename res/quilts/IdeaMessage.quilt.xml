@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quilt layout="one-column.message" nestable="false" disableTopCssClass="false">
+  <add to="footer-right">
+    <component id="comments.action.comment-button" wrapper="lia-message-actions" controlType="primary"/>
+  </add>
+  <add to="header-left">
+    <component id="message-status" wrapper="lia-byline-wrapper"/>
+  </add>
+  <add to="mod-controls">
+    <component id="modbar-toggle"/>
+    <component id="modbar"/>
+  </add>
+  <add to="main">
+    <component id="message-view.widget.body"/>
+    <component id="ratings.widget.rating-display" ratingSystemRef="conv:idea_ratings"/>
+    <component id="message-view.widget.labels" useChrome="false" showTagLabelText="true" useHeading="false"/>
+    <component id="message-view.widget.tags" useChrome="true" showTagLabelText="true"/>
+  </add>
+  <add to="header-right">
+    <component id="byline-author-date" wrapper="lia-byline-wrapper"/>
+  </add>
+  <add to="footer-left">
+    <component id="kudos-action"/>
+  </add>
+</quilt>

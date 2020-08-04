@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quilt layout="header" nestable="true" disableTopCssClass="false">
+  <add to="feedback">
+    <component id="common.widget.page-information"/>
+    <component id="common.widget.page-feedback"/>
+  </add>
+  <add to="breadcrumb">
+    <component id="common.widget.breadcrumb"/>
+    <component id="community.widget.page-options" wrapper="page-controls"/>
+  </add>
+  <add to="header-left">
+    <component id="custom.header" />
+  </add>
+  <add to="sub-header-main">
+    <component id="common.widget.page-title"/>
+    <component id="common.widget.search-form" defaultToCommunity="false" useClearSearchButton="true" showAdvancedSearchLink="false" hideGranularity="false"/>
+  </add>
+  <add to="header-right">
+    <component id="users.action.login" wrapper="lia-header-actions"/>
+    <component id="users.widget.menu" wrapper="lia-header-actions" showAnonymousAvatar="false"/>
+    <component id="common.widget.slide-out-nav-menu" direction="right" wrapper="lia-header-actions"/>
+
+  </add>
+</quilt>

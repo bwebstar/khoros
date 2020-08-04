@@ -1,0 +1,90 @@
+// common
+@import "../../redsail_skin/sass/common/flexbox";
+@import "../../redsail_skin/sass/common/utilities";
+@import "../../redsail_skin/sass/common/typography";
+@import "../../redsail_skin/sass/common/iconography";
+@import "../../redsail_skin/sass/common/structure";
+@import "../../redsail_skin/sass/common/labels";
+@import "../../redsail_skin/sass/common/links";
+@import "../../redsail_skin/sass/common/titles";
+@import "../../redsail_skin/sass/common/panels";
+@import "../../redsail_skin/sass/common/tables";
+@import "../../redsail_skin/sass/common/navigation";
+@import "../../redsail_skin/sass/common/forms";
+@import "../../redsail_skin/sass/common/buttons";
+@import "../../redsail_skin/sass/common/validation";
+@import "../../redsail_skin/sass/common/tabs";
+@import "../../redsail_skin/sass/common/dropdowns";
+@import "../../redsail_skin/sass/common/tags-labels";
+@import "../../redsail_skin/sass/common/tooltips";
+@import "../../redsail_skin/sass/common/dialogs";
+@import "../../redsail_skin/sass/common/alerts";
+@import "../../redsail_skin/sass/common/xyz";
+
+// components
+@import "../../redsail_skin/sass/component/page-title";
+@import "../../redsail_skin/sass/component/activity-feed";
+@import "../../redsail_skin/sass/component/announcements";
+@import "../../redsail_skin/sass/component/ask-an-expert";
+@import "../../redsail_skin/sass/component/board-list";
+@import "../../redsail_skin/sass/component/breadcrumbs";
+@import "../../redsail_skin/sass/component/footer";
+@import "../../redsail_skin/sass/component/header";
+@import "../../redsail_skin/sass/component/hero";
+@import "../../redsail_skin/sass/component/kudo-authors-leaderboard";
+@import "../../redsail_skin/sass/component/masonry";
+@import "../../redsail_skin/sass/component/message";
+@import "../../redsail_skin/sass/component/message-list";
+@import "../../redsail_skin/sass/component/menubar-pagination";
+@import "../../redsail_skin/sass/component/profile-plus";
+@import "../../redsail_skin/sass/component/replies-comments";
+@import "../../redsail_skin/sass/component/scroll-to";
+@import "../../redsail_skin/sass/component/search";
+@import "../../redsail_skin/sass/component/slide-menu";
+@import "../../redsail_skin/sass/component/user-menu";
+@import "../../redsail_skin/sass/component/vitality";
+@import "../../redsail_skin/sass/component/xyz";
+
+// pages
+@import "../../redsail_skin/sass/page/category";
+@import "../../redsail_skin/sass/page/community";
+@import "../../redsail_skin/sass/page/faq";
+@import "../../redsail_skin/sass/page/forum";
+@import "../../redsail_skin/sass/page/blog";
+@import "../../redsail_skin/sass/page/tkb";
+@import "../../redsail_skin/sass/page/idea";
+@import "../../redsail_skin/sass/page/contest";
+@import "../../redsail_skin/sass/page/group";
+@import "../../redsail_skin/sass/page/qanda";
+@import "../../redsail_skin/sass/page/my-profile";
+@import "../../redsail_skin/sass/page/post";
+@import "../../redsail_skin/sass/page/private-messages";
+@import "../../redsail_skin/sass/page/search";
+@import "../../redsail_skin/sass/page/view-profile";
+@import "../../redsail_skin/sass/page/xyz";
+
+// custom
+@import "../../redsail_skin/sass/custom/carousel";
+@import "../../redsail_skin/sass/custom/engagement";
+@import "../../redsail_skin/sass/custom/explore-categories";
+@import "../../redsail_skin/sass/custom/featured-articles";
+@import "../../redsail_skin/sass/custom/featured-topics";
+@import "../../redsail_skin/sass/custom/horizontal-navigation";
+@import "../../redsail_skin/sass/custom/latest-blogs";
+@import "../../redsail_skin/sass/custom/lazy-load-messages";
+@import "../../redsail_skin/sass/custom/node-browser";
+@import "../../redsail_skin/sass/custom/popular-blogs";
+@import "../../redsail_skin/sass/custom/profile-card";
+@import "../../redsail_skin/sass/custom/tiled-nav";
+@import "../../redsail_skin/sass/custom/top-users";
+@import "../../redsail_skin/sass/custom/trending-messages";
+@import "../../redsail_skin/sass/custom/user-bio";
+@import "../../redsail_skin/sass/custom/user-settings-link";
+@import "../../redsail_skin/sass/custom/vitality";
+
+@mixin redsail-skin-all {
+    @include common\all;
+    @include component\all;
+    @include page\all;
+    @include custom\all;
+}

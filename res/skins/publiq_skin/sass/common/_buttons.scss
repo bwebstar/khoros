@@ -1,0 +1,156 @@
+// Contents copied from: redsail_skin/sass/common/_buttons.scss
+// Contents copied from: theme_base/sass/common/_buttons.scss
+%primary-button,
+.lia-button-primary.lia-button-primary {
+    color: $btn-primary-color;
+    background-color: $btn-primary-bg;
+    border: 1px solid $btn-primary-border;
+    border-radius: $border-radius-large;
+    border-color: $theme-color-primary $theme-color-primary $theme-color-solution-border;
+    font-size: $theme-type-size-small;
+    line-height: $theme-line-height-small;
+    padding: $theme-standard-button-padding;
+    font-weight: $theme-type-weight-base;
+
+    &:hover {
+        background-color: $theme-button-hover;
+        border-color: $theme-button-hover-border $theme-button-hover-border $theme-color-primary;
+    }
+}
+
+%secondary-button,
+.lia-button-secondary.lia-button-secondary {
+    color: $btn-secondary-color;
+    background-color: $btn-secondary-bg;
+    border: 1px solid $btn-secondary-border;
+    border-radius: $border-radius-large;
+    border-color: #cccccc #cccccc #b3b3b3;
+    font-size: $theme-type-size-small;
+    line-height: $theme-line-height-small;
+    padding: $theme-standard-button-padding;
+    font-weight: $theme-type-weight-base;
+
+    &:hover {
+        background-color: #f2f2f2;
+        border-color: #d9d9d9 #d9d9d9 #bfbfbf;
+        text-decoration: none;
+    }
+}
+
+.lia-button {
+    font-weight: $theme-type-weight-base;
+    font-size: $theme-type-size-small;
+    padding: $theme-standard-button-padding;
+
+    &:hover {
+        background-color: $theme-button-hover;
+        border-color: $theme-button-hover-border $theme-button-hover-border $theme-color-primary;
+    }
+}
+
+.lia-button-group.lia-component-share-button a.lia-js-add-this-widget {
+    color: #fff;
+
+    &:before {
+        color: #fff;
+    }
+}
+
+.lia-panel-message .lia-button-primary:hover,
+.lia-panel-message .lia-action-reply.reply-action-link:hover {
+
+    background-color: $theme-button-hover;
+    border-color: $theme-button-hover-border $theme-button-hover-border $theme-color-primary;
+
+}
+
+#lia-body .lia-component-common-widget-search-form .SearchForm.lia-form-inline .lia-button-searchForm-action {
+    border: none;
+    background-color: transparent;
+}
+
+/* kudos */
+#lia-body .lia-content {
+    .lia-button-image-kudos.lia-button {
+        border: 1px solid $link-color;
+        border-radius: $border-radius-large;
+        background: transparent;
+
+        .kudos-link {
+            border: none;
+            border-radius: $border-radius-large 0 0 $border-radius-large;
+            padding: 3px 12px;
+            background: transparent;
+
+            &::before {
+                color: $theme-color-foreground;
+            }
+
+            &:hover {
+                color: $theme-color-background;
+                background-color: $theme-color-solution-border;
+                border-color: $theme-color-solution-border $theme-color-solution-border $theme-color-primary;
+            }
+
+            &:hover::before {
+                color: $theme-color-background;
+            }
+        }
+
+        .kudos-count-link {
+            color: $text-color;
+            font-size: $font-size-small;
+            padding: 5px 12px;
+            border-left: 1px solid $link-color;
+            border-radius: 0 $border-radius-large $border-radius-large 0;
+        }
+
+        /* These apply to idea message kudos. */
+        .lia-button-image-kudos-count {
+            border: none;
+            margin: 0;
+        }
+
+        .lia-button-image-kudos-label {
+            display: inline-block;
+        }
+
+        .lia-component-kudos-widget-message-kudos-count {
+            padding: 0;
+        }
+    }
+}
+
+/* Themes v1.2 */
+#lia-body {
+    .lia-button-image-kudos.lia-button-image-kudos-has-kudos.lia-button {
+        background-color: $theme-color-background;
+        border-color: $theme-kudos-success-border;
+
+        .lia-link-navigation {
+            &.kudos-count-link {
+                color: $theme-kudos-success-text;
+                border-color: $theme-kudos-success-border;
+                background-color: $theme-color-background;
+            }
+
+            &.kudos-link {
+                background: $link-color;
+
+                &:before {
+                    color: $theme-color-background;
+                }
+
+                &:hover {
+                    background-color: $link-hover-color;
+                    border-color: $link-hover-color;
+                    border-color: $theme-kudos-success-border;
+
+                    &:before {
+                        color: $theme-color-background;
+                    }
+                }
+            }
+        }
+    }
+}

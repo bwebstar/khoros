@@ -1,0 +1,261 @@
+// Contents copied from: redsail_skin/sass/component/_header.scss
+// Contents copied from: theme_base/sass/component/_header.scss
+.lia-quilt-row.lia-quilt-row-main-header {
+    display: flex;
+    width: auto !important;
+    background-color: rgba(249, 249, 249, 0.95);
+    transition: all ease-in-out 0.5s;
+    height: 95px;
+
+    .lia-quilt-column.lia-quilt-column-20.lia-quilt-column-left.lia-quilt-column-header-left {
+        width: auto;
+        flex-grow: 1;
+        padding-right: 0;
+
+        .horizontal-nav {
+            background: transparent;
+            display: flex;
+            align-items: center;
+            padding: 15.5px 0;
+
+            @include media(large-desktop) {
+                padding: 15.5px 0;
+            }
+
+            .slide-out-menu {
+                padding: 0;
+
+                .lia-slide-out-nav-menu {
+                    .lia-slide-out-nav-menu-wrapper:before {
+                        background-size: 20px 20px;
+                        padding: 10px;
+
+                    }
+                }
+            }
+
+            .lia-slide-out-nav-menu-wrapper {
+                padding-left: 0;
+                padding-right: 12px;
+
+                @media (min-width: $screen-sm-min) {
+                    padding-left: 0;
+                    padding-right: 12px;
+                }
+            }
+
+            ul.custom-sub-nav {
+                margin-bottom: 0;
+                padding: 0;
+                position: relative;
+                float: left;
+                left: 0;
+
+                &.visible-lg-block {
+                    @media (min-width: $screen-lg-min) {
+                        display: flex !important;
+                        align-items: center;
+                        width: 100%;
+                    }
+                }
+
+                a.top-level-link.menuitem {
+                    font-weight: 400;
+
+                    &:hover:after {
+                        color: $theme-color-primary;
+                    }
+                }
+
+                li {
+                    a {
+                        font-size: $theme-type-size-small;
+                        display: inline-block;
+                        padding: $padding-base-vertical 0;
+                        width: 100%;
+                        font-weight: 500;
+
+                        @media (min-width: $screen-lg-min) {
+                            padding: $padding-base-vertical $padding-large-horizontal;
+                        }
+
+                        cursor: pointer;
+
+                        &:hover,
+                        &:active {
+                            color: $theme-color-primary;
+                            text-decoration: none;
+                        }
+                    }
+
+                    &:hover {
+                        background: inherit;
+                        color: $theme-color-primary;
+
+                        &:after {
+                            color: $theme-color-primary;
+                        }
+
+                        .header-sub-nav {
+                            display: block;
+                        }
+                    }
+
+                    &.expanded {
+                        .header-sub-nav {
+                            display: block;
+                        }
+                    }
+
+                    &.has-children {
+                        >a {
+
+                            &:after {
+                                content: $fa-var-chevron-down;
+                                font-size: $theme-type-size-xsmall;
+                            }
+
+                        }
+                    }
+
+                    .header-sub-nav {
+                        margin-bottom: 0;
+                        background: $theme-color-background;
+                        display: none;
+                        position: absolute;
+                        text-align: left;
+                        top: $theme-nav-dropdown-offset;
+                        left: 0;
+                        z-index: 11;
+                        min-width: 100%;
+                        border-radius: 0;
+                        box-shadow: 1px 1px 30px rgba(0, 0, 0, .06);
+                        border-top: 3px solid #1a80b6;
+                        background-color: $theme-color-grey-background;
+                        z-index: 1500;
+
+                        li {
+                            clear: both;
+                            float: left;
+                            width: 100%;
+
+                            &:hover {
+                                background: $theme-color-highlight;
+                                color: $theme-color-foreground;
+
+                                a {
+
+                                    color: $theme-color-foreground;
+
+                                }
+                            }
+
+                            &.depth2 {
+                                border-bottom: 1px solid #dcdadb;
+
+                            }
+
+                            &.depth3 {
+                                padding-left: 15px;
+                                border-bottom: 1px solid #dcdadb;
+
+                            }
+
+
+                        }
+                    }
+                }
+
+                @media (min-width: $screen-lg-min) {
+                    padding: 0;
+                    left: 0;
+                }
+            }
+
+            ul.custom-sub-nav li.community-link {
+                flex-grow: 1;
+
+                a {
+                    background: url("/html/assets/Integra-Logo-Retina.png") no-repeat;
+                    background-size: cover;
+                    height: 58px;
+                    width: 137.5px;
+
+                    span {
+                        display: none;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .lia-quilt-column.lia-quilt-column-04.lia-quilt-column-right.lia-quilt-column-header-right {
+        width: auto;
+        padding-left: 0;
+        float: none;
+
+
+        .lia-header-actions {
+            padding: 14px 1px;
+            float: none;
+            height: 95px;
+            display: flex;
+            align-items: center;
+
+            @include media(large-desktop) {
+                padding: 20px 1px;
+                margin-left: 70px;
+            }
+
+            @media (min-width: $screen-md-min) {
+                right: auto;
+            }
+
+            >.login-link {
+                padding-right: 0;
+                position: relative;
+                padding: 0;
+
+            }
+
+            >.lia-component-users-widget-menu {
+                @media (min-width: $screen-md-min) {
+                    padding-right: 0px;
+                }
+            }
+        }
+    }
+}
+
+.lia-top-quilt {
+    >.lia-quilt-row-header .lia-quilt-row-sub-header {
+        background-color: #1D4F90;
+
+        .lia-component-common-widget-page-title>.lia-link-navigation {
+            color: $theme-color-background;
+        }
+    }
+}
+
+.lia-quilt-row.lia-quilt-row-main-header .lia-quilt-column.lia-quilt-column-04.lia-quilt-column-right.lia-quilt-column-header-right .lia-header-actions>.login-link {
+    padding-right: 0;
+    position: relative;
+    padding: 14px 10px;
+    font-size: $theme-type-size-small;
+    margin-right: 20px;
+
+    @include media(phone) {
+        font-size: 0;
+    }
+
+
+    &:before {
+        position: absolute;
+        top: 0px;
+        right: -30px;
+        width: auto;
+    }
+
+
+}

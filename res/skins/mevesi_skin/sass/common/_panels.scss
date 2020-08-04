@@ -1,0 +1,18 @@
+// Contents copied from: redsail_skin/sass/common/_panels.scss
+// Contents copied from: theme_base/sass/common/_panels.scss
+.lia-panel .lia-panel-heading-bar-title {
+    color: $theme-color-headline;
+}
+
+.custom-tiled-node-navigation section h2,
+.message-list-heading-wrapper h3 {
+    color: $theme-color-headline;
+    font-size: $theme-type-size-panel-heading-small;
+    font-weight: $theme-type-weight-panel-heading;
+    line-height: $theme-line-height-xlarge;
+
+    @media (min-width: $screen-sm-min) {
+        font-size: $theme-type-size-panel-heading;
+        line-height: $theme-line-height-xxlarge;
+    }
+}

@@ -1,0 +1,37 @@
+// Contents copied from: redsail_skin/sass/component/_footer.scss
+// Contents copied from: theme_base/sass/component/_footer.scss
+#footer {
+    background: $theme-color-primary;
+    border-top: 2px solid $theme-color-solution-border;
+    color: $theme-color-background;
+    padding: 20px;
+
+    .logo {
+        display: block;
+    }
+
+    a {
+        color: $theme-color-background;
+    }
+
+    .row {
+
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding-bottom: 3rem;
+
+        .col-12 {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+
+            p {
+                margin: 8px 0;
+            }
+        }
+    }
+}

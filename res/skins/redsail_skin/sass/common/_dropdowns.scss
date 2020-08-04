@@ -1,0 +1,42 @@
+// Contents copied from: theme_base/sass/common/_dropdowns.scss
+#lia-body {
+    .page-controls {
+
+        .default-menu-option,
+        .default-menu-option:hover,
+        .default-menu-option:active,
+        .default-menu-option:focus {
+            padding-left: 0;
+            padding-right: 0;
+            font-family: $font-family-sans-serif;
+            font-size: $theme-type-size-small;
+            font-weight: $theme-type-weight-semibold;
+            width: auto;
+            line-height: 18px;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            color: $theme-color-foreground;
+
+            &:before {
+                background: none;
+                background-size: 0;
+                padding: 0;
+            }
+
+            &:after {
+                content: $fa-var-chevron-down;
+                font-family: FontAwesome;
+                padding: 0;
+                height: 14px;
+                width: 14px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.lia-page-options {
+    padding-top: 0;
+    vertical-align: middle;
+}

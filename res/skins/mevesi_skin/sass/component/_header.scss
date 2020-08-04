@@ -1,0 +1,252 @@
+// Contents copied from: redsail_skin/sass/component/_header.scss
+// Contents copied from: theme_base/sass/component/_header.scss
+.lia-quilt-row.lia-quilt-row-main-header {
+    display: flex;
+    width: auto !important;
+    background-color: rgba(249, 249, 249, 0.95);
+    transition: all ease-in-out 0.5s;
+    height: 109px;
+
+    .lia-quilt-column.lia-quilt-column-20.lia-quilt-column-left.lia-quilt-column-header-left {
+        width: auto;
+        flex-grow: 1;
+        padding-right: 0;
+
+        .horizontal-nav {
+            background: transparent;
+            display: flex;
+            align-items: center;
+
+            @include media(large-desktop) {
+                padding: 1.5px 0;
+            }
+
+            .slide-out-menu {
+                padding: 4px 0;
+
+                .lia-slide-out-nav-menu {
+                    .lia-slide-out-nav-menu-wrapper:before {
+                        background-size: 20px 20px;
+                        padding: 10px;
+
+                    }
+                }
+            }
+
+            .lia-slide-out-nav-menu-wrapper {
+                padding-left: 0;
+                padding-right: 12px;
+                padding-top: 4px;
+
+                @media (min-width: $screen-sm-min) {
+                    padding-left: 0;
+                    padding-right: 12px;
+                }
+            }
+
+            ul.custom-sub-nav {
+                margin-bottom: 0;
+                padding: 0;
+                position: relative;
+                float: left;
+                left: 0;
+
+                &.visible-lg-block {
+                    @media (min-width: $screen-lg-min) {
+                        display: flex !important;
+                        align-items: center;
+                        width: 100%;
+                    }
+                }
+
+                a.top-level-link.menuitem {
+                    font-weight: 700;
+                    color: $theme-color-solution-border;
+
+                    &:hover:after {
+                        color: $theme-color-solution-border;
+                    }
+                }
+
+                li {
+                    a {
+                        font-size: $theme-type-size-base;
+                        display: inline-block;
+                        padding: $padding-base-vertical 0;
+                        width: 100%;
+                        font-weight: 700;
+                        color: #A6AAA9;
+
+                        @media (min-width: $screen-lg-min) {
+                            padding: $padding-base-vertical $padding-large-horizontal;
+                        }
+
+                        cursor: pointer;
+
+                        &:hover,
+                        &:active {
+                            color: $theme-color-solution-border;
+                            text-decoration: none;
+                        }
+                    }
+
+                    &:hover {
+                        background: inherit;
+                        color: $theme-color-primary;
+
+                        &:after {
+                            color: $theme-color-primary;
+                        }
+
+                        .header-sub-nav {
+                            display: block;
+                        }
+                    }
+
+                    &.expanded {
+                        .header-sub-nav {
+                            display: block;
+                        }
+                    }
+
+                    &.has-children {
+                        >a {
+                            font-weight: 700;
+                            color: $theme-color-solution-border;
+
+                            &:after {
+                                color: $theme-color-solution-border;
+                            }
+                        }
+                    }
+
+                    .header-sub-nav {
+                        margin-bottom: 0;
+                        background: $theme-color-background;
+                        display: none;
+                        position: absolute;
+                        text-align: left;
+                        top: $theme-nav-dropdown-offset;
+                        left: 0;
+                        z-index: 11;
+                        min-width: 100%;
+                        border-radius: 0;
+                        box-shadow: 1px 1px 30px rgba(0, 0, 0, .06);
+                        z-index: 1500;
+
+                        li {
+                            clear: both;
+                            float: left;
+                            width: 100%;
+
+                            &:hover {
+                                background: $theme-color-background;
+                                color: $theme-color-solution-border;
+
+                                a {
+
+                                    color: $theme-color-solution-border;
+
+                                }
+                            }
+
+                            &.depth2 {}
+
+                            &.depth3 {
+                                padding-left: 15px;
+
+
+                            }
+
+
+                        }
+                    }
+                }
+
+                @media (min-width: $screen-lg-min) {
+                    padding: 0;
+                    left: 0;
+                }
+            }
+
+            ul.custom-sub-nav li.community-link {
+                flex-grow: 1;
+                padding: 15px 0;
+
+                a {
+                    background: url("/html/assets/Mevesi-Logo.png") no-repeat;
+                    background-size: cover;
+                    width: 182px;
+                    height: 70px;
+                    padding: 0;
+
+                    span {
+                        display: none;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .lia-quilt-column.lia-quilt-column-04.lia-quilt-column-right.lia-quilt-column-header-right {
+        width: auto;
+        padding-left: 0;
+        float: none;
+
+
+        .lia-header-actions {
+            padding: 14px 1px;
+            float: none;
+            height: 109px;
+            display: flex;
+            align-items: center;
+
+            @include media(large-desktop) {
+                padding: 25px 1px;
+                margin-left: 70px;
+            }
+
+            @media (min-width: $screen-md-min) {
+                right: auto;
+            }
+
+            >.login-link {
+                padding-right: 0;
+                position: relative;
+                padding: 0;
+
+            }
+
+            >.lia-component-users-widget-menu {
+                @media (min-width: $screen-md-min) {
+                    padding-right: 0px;
+                }
+            }
+        }
+    }
+}
+
+.lia-quilt-row.lia-quilt-row-main-header .lia-quilt-column.lia-quilt-column-04.lia-quilt-column-right.lia-quilt-column-header-right .lia-header-actions>.login-link {
+    padding-right: 0;
+    position: relative;
+    padding: 9px 10px;
+    font-size: $theme-type-size-base;
+    margin-right: 20px;
+
+    @include media(phone) {
+        font-size: 0;
+    }
+
+    @include media(desktop-and-down) {
+        margin-top: 14px;
+    }
+
+    &:before {
+        position: absolute;
+        top: -6px;
+        right: -30px;
+        width: auto;
+    }
+
+}

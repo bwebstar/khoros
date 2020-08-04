@@ -1,0 +1,52 @@
+// Contents copied from: redsail_skin/sass/common/_alerts.scss
+// Contents copied from: theme_base/sass/common/_alerts.scss
+// Contents copied from: redsail_skin/sass/common/_alerts.scss
+// Contents copied from: theme_base/sass/common/_alerts.scss
+.lia-panel-feedback-banner-note,
+.lia-panel-feedback-inline-note {
+    color: #000;
+
+    .lia-link-navigation {
+        color: #000;
+    }
+}
+
+.lia-panel-feedback-banner-alert,
+.lia-panel-feedback-banner-warning,
+.lia-panel-feedback-banner-note,
+.lia-component-tag-banner,
+.lia-panel-feedback-banner-safe,
+.lia-panel-status-banner-note,
+.lia-quilt-column-feedback .lia-component-common-widget-page-information {
+    border-radius: $border-radius-small;
+    color: #000;
+}
+
+.mce-container .lia-mce-loader-feedback,
+.lia-ajax-loader-feedback,
+.lia-panel-feedback-banner-warning,
+.lia-panel-feedback-inline-warning,
+.lia-panel-status-banner-note,
+.lia-quilt-column-feedback .lia-component-common-widget-page-information {
+    color: #000;
+}
+
+.lia-panel-feedback-banner-alert,
+.lia-panel-feedback-banner-warning,
+.lia-panel-feedback-banner-note,
+.lia-panel-feedback-banner-safe,
+.lia-panel-feedback-inline-alert,
+.lia-panel-feedback-inline-warning,
+.lia-panel-feedback-inline-note,
+.lia-panel-feedback-inline-safe,
+.lia-panel-status-banner-note,
+.no-blog-articles {
+
+    // Link colors in Peak feedback panels
+    // need to be light since the backgrounds
+    // are dark
+    .lia-link-navigation {
+        color: #000;
+        text-decoration: underline;
+    }
+}

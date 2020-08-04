@@ -1,0 +1,13 @@
+// Contents copied from: redsail_skin/sass/component/_footer.scss
+// Contents copied from: theme_base/sass/component/_footer.scss
+footer {
+    background: $theme-color-solution-border;
+    padding: 30px 20px;
+
+    .copyright {
+        text-align: center;
+        font-size: 15px;
+        font-weight: 200;
+        color: #99C2D1;
+    }
+}

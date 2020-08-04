@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quilt layout="one-column.message" nestable="false" disableTopCssClass="false">
+  <add to="footer-right">
+    <component id="comment-button"/>
+  </add>
+  <add to="header-left">
+    <component id="author-avatar"/>
+    <component id="message-view.widget.author-username" wrapper="lia-message-author-with-avatar"/>
+    <component id="author-rank" wrapper="lia-message-author-with-avatar"/>
+    <component id="user-expert-topics"/>
+    <component id="theme-lib.message-stats"/>
+  </add>
+  <add to="main">
+    <component id="message-view.widget.body"/>
+    <component id="message-view.widget.labels" useChrome="false" showTagLabelText="true" useHeading="false"/>
+    <component id="message-view.widget.tags" useChrome="true" showTagLabelText="true"/>
+    <component id="source-device"/>
+  </add>
+  <add to="header-right">
+    <component id="message-view.widget.action-menu" renderOrder="blog-article-page-action-menu"/>
+    <component id="post-date"/>
+  </add>
+  <add to="footer-left">
+    <component id="kudos-action"/>
+  </add>
+  <add to="mod-controls-main">
+    <component id="modbar-toggle"/>
+    <component id="modbar"/>
+  </add>
+</quilt>

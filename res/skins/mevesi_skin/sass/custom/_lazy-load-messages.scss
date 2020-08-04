@@ -1,0 +1,15 @@
+// Contents copied from: theme_base/sass/custom/_lazy-load-messages.scss
+@media screen and (min-width: $screen-xs-min) {
+    .custom-messages-loader .message-type-selector-wrapper {
+        #messages-loader-type {
+            height: 37px;
+            font-size: $theme-type-size-small;
+        }
+    }
+}
+
+.custom-messages-loader .message-type-selector-wrapper {
+    #messages-loader-type {
+        font-size: $theme-type-size-small;
+    }
+}

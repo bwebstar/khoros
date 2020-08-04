@@ -1,0 +1,44 @@
+// Contents copied from: redsail_skin/sass/page/_view-profile.scss
+// Contents copied from: theme_base/sass/page/_view-profile.scss
+// Contents copied from: redsail_skin/sass/page/_view-profile.scss
+// Contents copied from: theme_base/sass/page/_view-profile.scss
+#lia-body.ViewProfilePage .lia-profile-hero-avatar,
+#lia-body.ViewProfilePage .lia-profile-hero-user,
+#lia-body.ViewProfilePage .lia-user-badge-list {
+    background-color: transparent;
+    color: $theme-color-background;
+}
+
+.settings-link-wrapper .my-profile-link {
+    color: $theme-color-background;
+
+    &:after {
+        color: $theme-color-background;
+    }
+
+    &:hover {
+        color: $theme-color-background;
+
+        &:after {
+            color: $theme-color-background;
+        }
+
+    }
+}
+
+#lia-body.ViewProfilePage .lia-user-badge-list .lia-view-all .lia-link-navigation {
+    color: $theme-color-background;
+
+    &:after {
+        color: $theme-color-background;
+    }
+
+    &:hover {
+        color: $theme-color-background;
+
+        &:after {
+            color: $theme-color-background;
+        }
+
+    }
+}

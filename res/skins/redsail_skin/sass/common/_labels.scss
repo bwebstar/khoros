@@ -1,0 +1,39 @@
+// Contents copied from: theme_base/sass/common/_labels.scss
+%label-alt {
+    .label-link {
+        display: block;
+        text-align: left;
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+        color: $link-color;
+        font-weight: $theme-type-weight-base;
+        padding: 0 7px 0 0;
+        font-size: $font-size-small;
+
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: $theme-color-background;
+            color: $link-hover-color;
+            text-decoration: underline;
+        }
+    }
+}
+
+.LabelsList {
+    li {
+        display: none;
+
+        &.label {
+            display: inline-block;
+            padding-bottom: 0;
+        }
+    }
+
+
+}
+
+.LabelsList li[aria-hidden] {
+    display: none;
+}

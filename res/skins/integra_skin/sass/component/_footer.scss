@@ -1,0 +1,125 @@
+// Contents copied from: redsail_skin/sass/component/_footer.scss
+// Contents copied from: theme_base/sass/component/_footer.scss
+footer {
+    --footerw_bg_image: url(//www.integragroup.com/wp-content/uploads/2019/08/footer_bg.jpg);
+    --footerw_bg_full-size: initial;
+    --footerw_bg_full-position: top left;
+    --footerw_bg_repeat: repeat-x;
+    --footerw_bg_pos: top left;
+    --footer_bg_color: #1a3664;
+    --footer_border_size: 0px;
+    --footer_border_color: #e9eaee;
+    --footer_link_color: #ebedee;
+    --footer_link_color_hover: #1a80b6;
+    position: relative;
+    padding: 50px 10px 0px;
+    border-top: 0px solid #e9eaee;
+    background-image: url(https://www.integragroup.com/wp-content/uploads/2019/08/footer_bg.jpg);
+    background-repeat: repeat-x;
+    background-color: #1a3664;
+    background-size: initial;
+    background-position: top left;
+    color: #ffffff;
+
+    @include media(phone) {
+        padding-top: 30px;
+    }
+
+    .fusion-row {
+        @extend %responsive-fixed-width;
+        padding: 0 $theme-grid-gutter-side/2;
+
+        @media (min-width: $screen-sm-min) {
+            padding: 0 $theme-grid-gutter-side;
+        }
+
+        .fusion-row .fusion-columns {
+            display: block;
+            -ms-flex-flow: wrap;
+            flex-flow: wrap;
+        }
+
+        .lia-button-primary {
+            padding: 13px 28px;
+
+            span {
+                font-size: $theme-type-size-small;
+            }
+        }
+
+        .fusion-columns.fusion-columns-2.fusion-widget-area {
+            display: flex;
+            align-items: center;
+            padding-bottom: 20px;
+
+            @include media(phone) {
+                padding-bottom: 0;
+                flex-flow: column;
+            }
+
+            .fusion-column.col-lg-6.col-md-6.col-sm-6 {
+                flex-grow: 1;
+
+                @include media(phone) {
+                    padding-bottom: 30px;
+                }
+            }
+        }
+
+        .fusion-social-network-icon {
+            margin: 0 3.5px 10px;
+            background-clip: inherit;
+            border: 1px solid #46494a;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            line-height: 1;
+            font-family: icomoon;
+
+            :hover {
+                opacity: .8;
+            }
+
+            a:before {
+                transition-property: color, background-color, border-color;
+                transition-duration: .2s;
+                transition-timing-function: linear;
+            }
+
+            &.fusion-icon-facebook:before {
+                content: "\e604";
+                font-family: icomoon;
+            }
+
+            &.fusion-icon-twitter:before {
+                content: "\e605";
+                font-family: icomoon;
+            }
+
+            &.fusion-icon-youtube:before {
+                content: "\e622";
+                font-family: icomoon;
+            }
+
+            &.fusion-icon-instagram:before {
+                content: "\ea92";
+                font-family: icomoon;
+            }
+
+            &.fusion-icon-linkedin:before {
+                content: "\e60f";
+            }
+        }
+
+        .fusion-footer-copyright-area {
+            color: #757d89;
+            font-size: 12px;
+            padding-bottom: 10px;
+
+            a {
+                color: #757d89;
+            }
+        }
+    }
+}

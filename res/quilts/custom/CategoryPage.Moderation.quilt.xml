@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quilt layout="two-column-main-side-landing" nestable="false" disableTopCssClass="false">
+  <add to="common-footer">
+    <component id="quilt:Footer"/>
+  </add>
+  <add to="side-content">
+    <component id="community.widget.admin-links"/>
+    <component id="images.widget.moderation"/>
+    <component id="common.widget.announcement"/>
+    <component id="theme-lib.featured-topics"/>
+    <component id="solutions.widget.accepted-solutions-leaderboard-taplet"/>
+    <component id="kudos.widget.authors-leaderboard"/>
+  </add>
+  <add to="main-content">
+    <component id="theme-lib.load-more-messages"/>
+  </add>
+  <add to="common-header">
+    <component id="quilt:Header"/>
+  </add>
+  <add to="breadcrumb" for="Header">
+    <component id="custom.tile-nav"/>
+  </add>
+</quilt>

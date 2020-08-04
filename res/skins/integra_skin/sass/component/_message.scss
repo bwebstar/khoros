@@ -1,0 +1,30 @@
+// Contents copied from: theme_base/sass/component/_message.scss
+.ForumTopicPage .lia-forum-topic-page-gte-5 .lia-message-view-forum-message-v5 .lia-component-accepted-solutions-button,
+.ForumTopicPage .lia-forum-topic-page-gte-5 .lia-forum-linear-view-gte-v5 .lia-component-accepted-solutions-button,
+.ForumTopicPage .lia-forum-topic-page-gte-5 .lia-forum-topic-message-gte-5 .lia-component-accepted-solutions-button {
+    float: none;
+}
+
+.ForumTopicPage .lia-forum-topic-page-gte-5 {
+
+    .lia-forum-linear-view-gte-v5,
+    .lia-message-view-forum-message-v5 {
+
+        .add-tag-link,
+        .add-tag-link::before {
+            font-size: $theme-type-size-small;
+        }
+    }
+}
+
+.lia-quilt-row.lia-quilt-row-message-header {
+    display: flex;
+
+    .lia-quilt-column-left.lia-quilt-column-message-header-left {
+        flex-grow: 1;
+    }
+}
+
+.lia-message-view-display.lia-list-row-requires-moderation .lia-message-post-date:before {
+    color: $theme-color-primary;
+}

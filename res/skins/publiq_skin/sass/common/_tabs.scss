@@ -1,0 +1,40 @@
+// Contents copied from: redsail_skin/sass/common/_tabs.scss
+// Contents copied from: theme_base/sass/common/_tabs.scss
+#lia-body {
+
+    ul.lia-tabs-standard {
+        .lia-link-disabled {
+            border: 1px solid transparent;
+            border-radius: $border-radius-base $border-radius-base 0 0;
+            display: block;
+            margin-right: 2px;
+            padding: $nav-link-padding;
+            position: relative;
+        }
+
+        .lia-tabs-active>span>span {
+            border-bottom: 2px solid $theme-color-foreground;
+            line-height: $line-height-base;
+            background-color: $theme-color-grey-background;
+
+        }
+    }
+
+    .lia-tabs-secondary {
+        .lia-link-disabled {
+            border: 1px solid transparent;
+            border-radius: $border-radius-base $border-radius-base 0 0;
+            display: block;
+            margin-right: 2px;
+            padding: $nav-link-padding;
+            position: relative;
+        }
+
+        .lia-tabs-active>span>span {
+            border-bottom: 2px solid $theme-color-light-grey;
+            background-color: $theme-color-grey-background;
+
+        }
+    }
+
+}

@@ -1,0 +1,152 @@
+// Contents copied from: redsail_skin/sass/common/_buttons.scss
+// Contents copied from: theme_base/sass/common/_buttons.scss
+%primary-button,
+.lia-button-primary.lia-button-primary {
+    color: $btn-primary-color;
+    background-color: $btn-primary-bg;
+    border: 1px solid $btn-primary-border;
+    border-radius: 0;
+    font-size: $theme-type-size-small;
+    line-height: $theme-line-height-small;
+    padding: $theme-standard-button-padding;
+    font-weight: $theme-type-weight-base;
+
+    &:hover {
+        background-color: $link-hover-color;
+        border-color: $link-hover-color;
+    }
+}
+
+%secondary-button,
+.lia-button-secondary.lia-button-secondary {
+    color: $btn-secondary-color;
+    background-color: $btn-secondary-bg;
+    border: 1px solid $btn-secondary-border;
+    border-radius: 0;
+    font-size: $theme-type-size-small;
+    line-height: $theme-line-height-small;
+    padding: $theme-standard-button-padding;
+    font-weight: $theme-type-weight-base;
+
+    &:hover {
+        background-color: $link-hover-color;
+        border-color: $link-hover-color;
+    }
+}
+
+.lia-button {
+    font-weight: $theme-type-weight-base;
+    font-size: $theme-type-size-small;
+    padding: $theme-standard-button-padding;
+
+    &:hover {
+        background-color: $link-hover-color;
+        border-color: $link-hover-color;
+    }
+}
+
+.lia-button-group.lia-component-share-button a.lia-js-add-this-widget {
+    color: #fff;
+
+    &:before {
+        color: #fff;
+    }
+}
+
+.lia-panel-message .lia-button-primary:hover,
+.lia-panel-message .lia-action-reply.reply-action-link:hover {
+
+    background-color: $link-hover-color;
+    border-color: $link-hover-color;
+}
+
+#lia-body .lia-component-common-widget-search-form .SearchForm.lia-form-inline .lia-button-searchForm-action {
+    border: none;
+    background-color: transparent;
+}
+
+/* kudos */
+#lia-body .lia-content {
+    .lia-button-image-kudos.lia-button {
+        border: 1px solid $custom-kudos-color;
+        border-radius: 0;
+        background: transparent;
+
+        .kudos-link {
+            border: none;
+            border-radius: 0;
+            padding: 0px 12px;
+            background: transparent;
+
+            &::before {
+                color: $theme-color-foreground;
+            }
+
+            &:hover {
+                color: $theme-color-background;
+                background-color: $link-hover-color;
+                border-color: $link-hover-color;
+            }
+
+            &:hover::before {
+                color: $theme-color-background;
+            }
+        }
+
+        .kudos-count-link {
+            color: $text-color;
+            font-size: $font-size-small;
+            padding: 2px 12px;
+            border-left: 1px solid $custom-kudos-color;
+            border-radius: 0;
+        }
+
+        /* These apply to idea message kudos. */
+        .lia-button-image-kudos-count {
+            border: none;
+            margin: 0;
+        }
+
+        .lia-button-image-kudos-label {
+            display: inline-block;
+        }
+
+        .lia-component-kudos-widget-message-kudos-count {
+            padding: 0;
+        }
+    }
+}
+
+/* Themes v1.2 */
+#lia-body {
+    .lia-button-image-kudos.lia-button-image-kudos-has-kudos.lia-button {
+        background-color: $theme-color-background;
+        border-color: $theme-kudos-success-border;
+
+        .lia-link-navigation {
+            &.kudos-count-link {
+                color: $theme-kudos-success-text;
+                border-color: $theme-kudos-success-border;
+                background-color: $theme-color-background;
+            }
+
+            &.kudos-link {
+                background: $custom-kudos-color;
+
+                &:before {
+                    color: $theme-color-background;
+                }
+
+                &:hover {
+                    background-color: $link-hover-color;
+                    border-color: $link-hover-color;
+                    border-color: $theme-kudos-success-border;
+
+                    &:before {
+                        color: $theme-color-background;
+                    }
+                }
+            }
+        }
+    }
+}

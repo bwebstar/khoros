@@ -1,0 +1,589 @@
+== .html_content ==
+<html>
+	<head>
+		<title>${recipient.login}</title>
+		<style type="text/css">
+			.digest-greetings { font: 10pt Arial, Helvetica; }
+			.digest-subscription-title { font: bold 14pt Arial, Helvetica; }
+			.digest-notification { margin-left: 7px; }
+			.digest-notification-revision { font: 10pt Arial, Helvetica; margin: 50px 0px 20px 0px; }
+			.digest-notification-subject { font: bold 10pt Arial, Helvetica; }
+			.digest-notification-body { font: 10pt Arial, Helvetica; margin: 25px 0px; display:none;}
+			.digest-notification-mail-action { font: 10pt Arial, Helvetica; margin: 6px 0px 60px 0px; }
+			.email-subscription-exceeded { font: 14px/20px Arial, Helvetica; margin: 20px 0px 10px 7px; }
+			.email-footer { font: 12px/25px Arial, Helvetica; margin: 4px; }
+		</style>
+	</head>
+	<body>
+		<div class="digest-greetings">
+			Hello ${recipient.login},
+			<p>You have <b>${digest.totalUpdates}</b> new subscriptions & activity updates in the ${community.title} Community. </p>
+		</div>
+		<hr />
+		<br />
+		<div class="digest-subscriptions">
+			#foreach ($subscription in $digest.subscriptions)
+				<div class="digest-subscription-title">
+				    #if ((${subscription.typeTitleLowerCase} == "board") && ${categorySubscriptionHelper.isAddCategorySubscriptionInfo($subscription.board)})
+				        #set ( $cat = $categorySubscriptionHelper.getCategorySubscriptionForBoard($subscription.board) )
+				        <a href="${cat.webUi.url}">${cat.title}</a> : <a href="${subscription.url}">${subscription.title}</a> (${subscription.updateCountTitle})
+				    #else
+					    ${subscription.typeTitle}: <a href="${subscription.url}">${subscription.title}</a> (${subscription.updateCountTitle})
+					#end
+				</div>
+				#foreach ($notification in $subscription.notifications)
+					#set ( $clauseCount = 0 )
+					#set ($initialDraft = "")
+					#set ( $newPublication = "false" )
+					#if ($notification.initialDraft)
+						#set ( $initialDraft = "a new draft was created" )
+						#set ( $clauseCount = $clauseCount + 1 )
+					#end
+					#set ($reviewRequests = "")
+					#if ($notification.editRequestSave)
+						#if ($notification.editRequestSaveCount > 1)
+							#set ( $reviewRequests = "${notification.editRequestSaveCount} requests for review" )
+							#set ( $clauseCount = $clauseCount + 1 )
+						#else
+							#set ( $reviewRequests = "1 request for review" )
+							#set ( $clauseCount = $clauseCount + 1 )
+						#end
+					#end
+					#set ($publishRequests = "")
+					#if ($notification.publishRequestSave)
+						#if ($notification.publishRequestSaveCount > 1)
+							#set ( $publishRequests = "${notification.publishRequestSaveCount} requests for publication" )
+							#set ( $clauseCount = $clauseCount + 1 )
+						#else
+							#set ( $publishRequests = "1 request for publication" )
+							#set ( $clauseCount = $clauseCount + 1 )
+						#end
+					#end
+					#set ( $unpublishedRevisions = "" )
+					#if ($notification.save)
+						#if (!$notification.publish)
+							#set ($draftCount = $notification.saveCount - $notification.publishCount)
+							#if ($draftCount > 1)
+								#if ($notification.initialDraft)
+									#set ( $draftCount = $draftCount - 1 )
+								#end
+								#set ( $unpublishedRevisions = "${draftCount} unpublished revisions" )
+								#set ( $clauseCount = $clauseCount + 1 )
+							#elseif (!$notification.initialDraft)
+								#set ( $unpublishedRevisions = "1 unpublished revision" )
+								#set ( $clauseCount = $clauseCount + 1 )
+							#end
+						#end
+					#end
+					#set ($newlyVisible = "")
+					#if ($notification.newlyVisible)
+						#set ( $newlyVisible= "a new publication" )
+						#if ($notification.moved)
+							#if ($notification.merged)
+								#set ( $merged = "true")
+							#else
+								#set ( $moved = "true" )
+							#end
+						#else
+							#set ( $newPublication = "true" )
+						#end
+						#set ( $clauseCount = $clauseCount + 1 )
+					#end
+					#set ($publishedRevisions = "")
+					#set ($updatedProductTag = "")
+					#if ($notification.updatePublish)
+						#if ($notification.updatePublishCount > 1)
+							#set ( $publishedRevisions = "${notification.updatePublishCount} published revisions" )
+							#set ( $clauseCount = $clauseCount + 1 )
+						#else
+							#set ( $publishedRevisions = "1 published revision" )
+							#set ( $clauseCount = $clauseCount + 1 )
+						#end
+						#if ( $notification.type.name == "product" )
+						    #set( $updatedProductTag = "true" )
+                        #end
+					#end
+					#set ($minorEdits = "")
+					#if ($notification.minorSave)
+						#if ($notification.minorSaveCount > 1)
+							#set ( $minorEdits = "${notification.minorSaveCount} edits marked 'minor'" )
+							#set ( $clauseCount = $clauseCount + 1 )
+						#else
+							#set ( $minorEdits = "1 edit marked 'minor'" )
+							#set ( $clauseCount = $clauseCount + 1 )
+						#end
+					#end
+					#set ( $revisionActivities = [$initialDraft, $reviewRequests, $publishRequests, $unpublishedRevisions, $newlyVisible, $publishedRevisions, $minorEdits] )
+					#set ( $phrase = "The following activities occurred on this ${notification.typeTitleLowerCase}: " )
+					#set ( $currentIndex = 1 )
+					#if ( $newPublication == "true" )
+						#set ( $phrase = "${notification.actor.login} posted a new ${notification.message.localizedObjectType} on ${notification.formattedPostDate}" )
+					#elseif ( $moved )
+						#set ( $phrase = "${notification.actor.login} moved a new ${notification.message.localizedObjectType} on ${notification.formattedPostDate}" )
+					#elseif ( $merged )
+						#set ( $phrase = "${notification.actor.login} merged a new ${notification.message.localizedObjectType} on ${notification.formattedPostDate}" )
+                    #elseif ( $updatedProductTag == "true" && !$notification.save)
+                        #set ( $phrase = "${notification.actor.login} tagged a ${notification.message.localizedObjectType} with ${subscription.title} on ${notification.formattedEventDate}" )
+					#else
+						#foreach ( $revisionActivity in $revisionActivities )
+							#if ( "$revisionActivity" != "")
+								#if ( $clauseCount > 1 )
+									#if ( $currentIndex < $clauseCount)
+										#set ( $phrase = "${phrase} ${revisionActivity}," )
+									#else
+										#set ( $phrase = "${phrase} and ${revisionActivity}." )
+									#end
+									#set ( $currentIndex = $currentIndex + 1 )
+								#else
+									#set ( $phrase = "${phrase} ${revisionActivity}." )
+								#end
+							#end
+						#end
+					#end
+					<div class="digest-notification">
+						<div class="digest-notification-revision">${phrase}</div>
+						<div class="digest-notification-subject">
+							<a href="${notification.message.webUi.url}">${notification.message.subject}</a>
+						</div>
+						<div class="digest-notification-body">
+							#if ($notification.showMessageBody)
+								${notification.formattedBody}
+							#else
+								<a href="${notification.message.webUi.url}">View</a>
+							#end
+						</div>
+						<div class="digest-notification-mail-action">
+							#if ($digest.actionByEmail && $subscription.actionByEmail)
+								#if ($notification.actions.canReplyByEmail)
+									<a href="${notification.actions.replyByEmailUrl}">Reply</a>
+								#end
+								#if ($notification.actions.canMarkAsSolution)
+									| <a href="${notification.actions.markAsSolutionUrl}">Accept as Solution</a>
+								#end
+								#if ($notification.actions.canGiveKudos)
+									| <a href="${notification.actions.giveKudosUrl}">Give Kudos</a>
+								#end
+							#end
+						</div>
+					</div>
+				#end
+				#if ($subscription.exceededCount > 0)
+					<div class="email-subscription-exceeded">
+						<i>We skipped $subscription.exceededCount more #if ( $subscription.exceededCount > 1 ) updates #else update #end to keep this email short. </i>
+						<br />
+						To view all of the updates for a subscription please go to <a href="${userSubscriptionsPageUrl}">your subscriptions</a>.
+					</div>
+				#end
+				<hr />
+				<br />
+			#end
+		</div>
+
+		#foreach ($badge in $digest.badges)
+			<div class="digest-subscriptions">
+				<div class="digest-subscription-title">
+					${badge.title} (${badge.updateCountTitle})
+					<br />
+					<br />
+				</div>
+				#foreach ($notification in $badge.notifications)
+					<div class="digest-notification">
+						<p>
+							<img src="${notification.badge.iconUrl}" height=72 width=72 />
+						</p>
+						<div class="digest-notification-subject">
+							<b>${notification.badge.title}</b>
+						</div>
+						<div class="digest-notification-body">
+							${notification.badge.description}
+						</div>
+						<br />
+					</div>
+				#end
+				<p>
+					<div class="digest-notification-mail-action">
+						<a href="${recipient.webUi.url}">View badges on your profile</a>
+					</div>
+				</p>
+					#if ($badge.exceededCount > 0)
+						<div class="email-subscription-exceeded">
+							<i>We skipped $badge.exceededCount more #if ( $badge.exceededCount > 1 ) updates #else update #end to keep this email short. </i>
+							<br />
+						</div>
+					#end
+				<hr />
+				<br />
+			<div>
+		#end
+
+		#foreach ($activity in $digest.activities)
+			<div class="digest-subscriptions">
+				<div class="digest-subscription-title">
+					${activity.typeTitle}: <a href="${activity.url}">${activity.title}</a> (${activity.updateCountTitle})
+				</div>
+				#foreach ($notification in $activity.notifications)
+					#set ($activityVerb = "")
+					#if ($notification.type.name == "mentions")
+						#set ($activityVerb = "mentioned you")
+					#end
+					#if ($notification.type.name == "kudos")
+						#set ($activityVerb = "gave you kudos")
+					#end
+					<div class="digest-notification">
+						<div class="digest-notification-revision">
+							${notification.actor.login} ${activityVerb} in <a href="${notification.message.board.webUi.url}">${notification.message.board.title}</a> on ${notification.formattedEventDate}
+						</div>
+						<div class="digest-notification-subject">
+							<a href="${notification.message.webUi.url}">${notification.message.subject}</a>
+						</div>
+						<div class="digest-notification-body">
+							#if ($notification.showMessageBody)
+								${notification.formattedBody}
+							#else
+								<a href="${notification.message.webUi.url}">View</a>
+							#end
+						</div>
+						<div class="digest-notification-mail-action">
+							#if ($digest.actionByEmail && $activity.actionByEmail)
+								#if ($notification.type.name == "mentions")
+									#if ($notification.actions.canReplyByEmail)
+										<a href="${notification.actions.replyByEmailUrl}">Reply</a>
+									#end
+									#if ($notification.actions.canGiveKudos)
+										| <a href="${notification.actions.giveKudosUrl}">Give Kudos</a>
+									#end
+								#end
+							#end
+						</div>
+					</div>
+				#end
+				#if ($activity.exceededCount > 0)
+					<div class="email-subscription-exceeded">
+						<i>We skipped $activity.exceededCount more #if ( $activity.exceededCount > 1 ) updates #else update #end to keep this email short. </i>
+						<br />
+						To view all of the updates for a subscription please go to <a href="${userSubscriptionsPageUrl}">your subscriptions</a>.
+					</div>
+				#end
+				<hr />
+				<br />
+			</div>
+		#end
+		#foreach ($customNotificationType in $digest.customEventNotifications)
+			<div class="digest-subscriptions">
+				<div class="digest-subscription-title">
+					${customNotificationType.typeTitle}: ${customNotificationType.title}</a> (${customNotificationType.updateCountTitle})
+				</div>
+				#foreach ($notification in $customNotificationType.notifications)
+					<div class="digest-notification">
+						<div class="digest-notification-revision">
+							${notification.actor.login} triggered a ${customNotificationType.typeTitle} in <a href="${notification.message.board.webUi.url}">${notification.message.board.title}</a> on ${notification.formattedPostDate}
+						</div>
+						<div class="digest-notification-subject">
+							<a href="${notification.message.webUi.url}">${notification.message.subject}</a>
+						</div>
+						<div class="digest-notification-body">
+							#if ($notification.showMessageBody)
+								${notification.formattedBody}
+							#else
+								<a href="${notification.message.webUi.url}">View</a>
+							#end
+						</div>
+					</div>
+				#end
+				#if ($customNotificationType.exceededCount > 0)
+					<div class="email-subscription-exceeded">
+						<i>We skipped $customNotificationType.exceededCount more #if ( $customNotificationType.exceededCount > 1 ) updates #else update #end to keep this email short. </i>
+						<br />
+						To view all of the updates for a subscription please go to <a href="${userSubscriptionsPageUrl}">your subscriptions</a>.
+					</div>
+				#end
+				<hr />
+				<br />
+			</div>
+		#end
+		<div class="email-footer">
+			${community.title} sent this message to <a href="mailto:${recipient.email}">${recipient.email}</a>.
+			<br />
+			To control which emails we send you,
+			<a href="${userSubscriptionsPageUrl}">manage your subscription & notification settings</a>
+			or <a href='${emailUrls.getTapestryUrl('/user/RemoveUserEmailPage/user-id/$user.id/mail-message-tracking/$trackingKey')}'>unsubscribe</a>.
+			<br />
+			<br />
+		</div>
+	</body>
+</html>
+
+== .subject ==
+${community.title} Community: ${digest.frequency} Digest
+== .text_content ==
+Hello ${recipient.login},
+
+You have ${digest.totalUpdates} new subscriptions & activity updates in the ${community.title} Community.
+
+
+#foreach ($subscription in $digest.subscriptions)
+-----------------------------------------------------------------------------------
+#if ($subscription.typeTitleLowerCase == "board" && ${categorySubscriptionHelper.isAddCategorySubscriptionInfo($subscription.board)})
+    #set ( $cat = $categorySubscriptionHelper.getCategorySubscriptionForBoard($subscription.board) )
+    ${cat.title} : ${subscription.title} (${subscription.updateCountTitle})
+#else
+    ${subscription.typeTitle}: ${subscription.title} (${subscription.updateCountTitle})
+#end
+
+#foreach ($notification in $subscription.notifications)
+#set ( $clauseCount = 0 )
+#set ($initialDraft = "")
+#set ( $newPublication = "false" )
+#if ($notification.initialDraft)
+#set ( $initialDraft = "a new draft was created" )
+#set ( $clauseCount = $clauseCount + 1 )
+#end
+#set ($reviewRequests = "")
+#if ($notification.editRequestSave)
+#if ($notification.editRequestSaveCount > 1)
+#set ( $reviewRequests = "${notification.editRequestSaveCount} requests for review" )
+#set ( $clauseCount = $clauseCount + 1 )
+#else
+#set ( $reviewRequests = "1 request for review" )
+#set ( $clauseCount = $clauseCount + 1 )
+#end
+#end
+#set ($publishRequests = "")
+#if ($notification.publishRequestSave)
+#if ($notification.publishRequestSaveCount > 1)
+#set ( $publishRequests = "${notification.publishRequestSaveCount} requests for publication" )
+#set ( $clauseCount = $clauseCount + 1 )
+#else
+#set ( $publishRequests = "1 request for publication" )
+#set ( $clauseCount = $clauseCount + 1 )
+#end
+#end
+#set ( $unpublishedRevisions = "" )
+#if ($notification.save)
+#if (!$notification.publish)
+#set ($draftCount = $notification.saveCount - $notification.publishCount)
+#if ($draftCount > 1)
+#if ($notification.initialDraft)
+#set ( $draftCount = $draftCount - 1 )
+#end
+#set ( $unpublishedRevisions = "${draftCount} unpublished revisions" )
+#set ( $clauseCount = $clauseCount + 1 )
+#elseif (!$notification.initialDraft)
+#set ( $unpublishedRevisions = "1 unpublished revision" )
+#set ( $clauseCount = $clauseCount + 1 )
+#end
+#end
+#end
+#set ($newlyVisible = "")
+#if ($notification.newlyVisible)
+#set ( $newlyVisible= "a new publication" )
+#if ($notification.moved)
+#if ($notification.merged)
+#set ( $merged = "true")
+#else
+#set ( $moved = "true" )
+#end
+#else
+#set ( $newPublication = "true" )
+#end
+#set ( $clauseCount = $clauseCount + 1 )
+#end
+#set ($publishedRevisions = "")
+#set ( $updatedProductTag = "" )
+#if ($notification.updatePublish)
+#if ($notification.updatePublishCount > 1)
+#set ( $publishedRevisions = "${notification.updatePublishCount} published revisions" )
+#set ( $clauseCount = $clauseCount + 1 )
+#else
+#set ( $publishedRevisions = "1 published revision" )
+#set ( $clauseCount = $clauseCount + 1 )
+#end
+#if ( $notification.type.name == "product" )
+#set( $updatedProductTag = "true" )
+#end
+#end
+#set ($minorEdits = "")
+#if ($notification.minorSave)
+#if ($notification.minorSaveCount > 1)
+#set ( $minorEdits = "${notification.minorSaveCount} edits marked 'minor'" )
+#set ( $clauseCount = $clauseCount + 1 )
+#else
+#set ( $minorEdits = "1 edit marked 'minor'" )
+#set ( $clauseCount = $clauseCount + 1 )
+#end
+#end
+#set ( $revisionActivities = [$initialDraft, $reviewRequests, $publishRequests, $unpublishedRevisions, $newlyVisible, $publishedRevisions, $minorEdits] )
+#set ( $phrase = "The following activities occurred on this ${notification.typeTitleLowerCase}: " )
+#set ( $currentIndex = 1 )
+#if ( $newPublication == "true")
+#set ( $phrase = "${notification.actor.login} posted a new ${notification.message.localizedObjectType} on ${notification.formattedPostDate}" )
+#elseif ( $moved )
+#set ( $phrase = "${notification.actor.login} moved a ${notification.message.localizedObjectType} on ${notification.formattedPostDate}" )
+#elseif ( $merged )
+#set ( $phrase = "${notification.actor.login} merged a ${notification.message.localizedObjectType} on ${notification.formattedPostDate}" )
+#elseif ( $updatedProductTag == "true" && !$notification.save)
+#set ( $phrase = "${notification.actor.login} tagged a ${notification.message.localizedObjectType} with ${subscription.title} on ${notification.formattedEventDate}" )
+#else
+#foreach ( $revisionActivity in $revisionActivities )
+#if ( "$revisionActivity" != "")
+#if ( $clauseCount > 1 )
+#if ( $currentIndex < $clauseCount)
+#set ( $phrase = "${phrase} ${revisionActivity}," )
+#else
+#set ( $phrase = "${phrase} and ${revisionActivity}." )
+#end
+#set ( $currentIndex = $currentIndex + 1 )
+#else
+#set ( $phrase = "${phrase} ${revisionActivity}." )
+#end
+#end
+#end
+#end
+${phrase}
+#if ($notification.showMessageBody)
+${notification.message.webUi.url}
+
+Subject: ${tools.unescapeHtml($notification.message.subject)}
+
+${notification.formattedBodyPlainText}
+#else
+
+Subject: ${tools.unescapeHtml($notification.message.subject)}
+
+You can view the body of the ${notification.typeTitleLowerCase} at the following URL:
+${notification.message.webUi.url}
+#end
+#if ($digest.actionByEmail && $subscription.actionByEmail)
+#if ($notification.actions.canReplyByEmail)
+
+You can respond to the ${notification.typeTitleLowerCase} at the following URL:
+${notification.actions.replyByEmailUrl}
+#end
+#if ($notification.actions.canMarkAsSolution)
+
+You can accept the solution to the ${notification.typeTitleLowerCase} at the following URL:
+${notification.actions.markAsSolutionUrl}
+#end
+#if ($notification.actions.canGiveKudos)
+
+You can give kudos to the ${notification.typeTitleLowerCase} at the following URL:
+${notification.actions.giveKudosUrl}
+#end
+#end
+
+
+
+#end
+
+#if ($subscription.exceededCount > 0)
+We skipped $subscription.exceededCount more #if ( $subscription.exceededCount > 1 ) updates #else update #end to keep this email short.
+To view all of the updates for a subscription please go your subscriptions here: ${userSubscriptionsPageUrl}
+
+
+
+#end
+#end
+
+#foreach ($badge in $digest.badges)
+${badge.title} (${badge.updateCountTitle})
+#foreach ($notification in $badge.notifications)
+
+${notification.badge.title}
+
+#end
+View it on your profile: ${recipient.webUi.url}
+#end
+
+#foreach ($activity in $digest.activities)
+-----------------------------------------------------------------------------------
+${activity.typeTitle}: ${activity.title} (${activity.updateCountTitle})
+
+#foreach ($notification in $activity.notifications)
+#set ($activityVerb = "")
+#if ($notification.type.name == "mentions")
+#set ($activityVerb = "mentioned you")
+#end
+#if ($notification.type.name == "kudos")
+#set ($activityVerb = "gave you kudos")
+#end
+
+${notification.actor.login} ${activityVerb} in ${notification.message.board.title} on ${notification.formattedEventDate}
+#if ($notification.showMessageBody)
+${notification.message.webUi.url}
+
+Subject: ${tools.unescapeHtml($notification.message.subject)}
+
+${notification.formattedBodyPlainText}
+#else
+
+Subject: ${tools.unescapeHtml($notification.message.subject)}
+
+You can view the body of the ${notification.typeTitleLowerCase} at the following URL:
+${notification.message.webUi.url}
+#end
+#if ($digest.actionByEmail && $activity.actionByEmail)
+#if ($notification.type.name == "mentions")
+#if ($notification.actions.canReplyByEmail)
+
+You can respond to the ${notification.typeTitleLowerCase} at the following URL:
+${notification.actions.replyByEmailUrl}
+#end
+#if ($notification.actions.canGiveKudos)
+
+You can give kudos to the ${notification.typeTitleLowerCase} at the following URL:
+${notification.actions.giveKudosUrl}
+#end
+#end
+#end
+
+
+
+#end
+
+#if ($activity.exceededCount > 0)
+We skipped $activity.exceededCount more #if ( $activity.exceededCount > 1 ) updates #else update #end to keep this email short.
+To view all of the updates for a subscription please go your subscriptions here: ${userSubscriptionsPageUrl}
+
+#end
+#end
+
+#foreach ($customNotificationType in $digest.customEventNotifications)
+-----------------------------------------------------------------------------------
+${customNotificationType.typeTitle}: ${customNotificationType.title} (${customNotificationType.updateCountTitle})
+
+#foreach ($notification in $customNotificationType.notifications)
+
+
+${notification.actor.login} triggered a ${customNotificationType.typeTitle} in ${notification.message.board.title} on ${notification.formattedPostDate}
+#if ($notification.showMessageBody)
+${notification.message.webUi.url}
+
+Subject: ${notification.message.subject}
+
+${notification.formattedBodyPlainText}
+#else
+
+Subject: ${notification.message.subject}
+
+You can view the body of the ${notification.typeTitleLowerCase} at the following URL:
+${notification.message.webUi.url}
+#end
+#end
+
+#if ($customNotificationType.exceededCount > 0)
+We skipped $customNotificationType.exceededCount more #if ( $customNotificationType.exceededCount > 1 ) updates #else update #end to keep this email short.
+To view all of the updates for a subscription please go your subscriptions here: ${userSubscriptionsPageUrl}
+
+#end
+#end
+
+===================================================================================
+
+${community.title} sent this message to ${recipient.email}
+
+To control which emails we send you, manage your subscriptions and notifications here: ${userSubscriptionsPageUrl}
+
+or unsubscribe here: ${emailUrls.getTapestryUrl("/user/RemoveUserEmailPage/user-id/$user.id/mail-message-tracking/$trackingKey")}
+
+
+

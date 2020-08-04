@@ -1,0 +1,88 @@
+// Contents copied from: theme_support/sass/_style.scss
+// Custom community styles.
+//
+// NOTE: To replace theme functional style blocks, override theme mixins rather than overriding one selector at a time.
+
+// common
+@import "common/flexbox";
+@import "common/utilities";
+@import "common/typography";
+@import "common/iconography";
+@import "common/structure";
+@import "common/labels";
+@import "common/links";
+@import "common/titles";
+@import "common/panels";
+@import "common/tables";
+@import "common/navigation";
+@import "common/forms";
+@import "common/buttons";
+@import "common/validation";
+@import "common/tabs";
+@import "common/dropdowns";
+@import "common/tags-labels";
+@import "common/tooltips";
+@import "common/dialogs";
+@import "common/alerts";
+@import "common/xyz";
+
+// components
+@import "component/page-title";
+@import "component/activity-feed";
+@import "component/announcements";
+@import "component/ask-an-expert";
+@import "component/board-list";
+@import "component/breadcrumbs";
+@import "component/footer";
+@import "component/header";
+@import "component/hero";
+@import "component/kudo-authors-leaderboard";
+@import "component/masonry";
+@import "component/message";
+@import "component/message-list";
+@import "component/menubar-pagination";
+@import "component/profile-plus";
+@import "component/replies-comments";
+@import "component/scroll-to";
+@import "component/search";
+@import "component/slide-menu";
+@import "component/user-menu";
+@import "component/vitality";
+@import "component/xyz";
+
+// pages
+@import "page/category";
+@import "page/community";
+@import "page/faq";
+@import "page/forum";
+@import "page/blog";
+@import "page/tkb";
+@import "page/idea";
+@import "page/contest";
+@import "page/group";
+@import "page/qanda";
+@import "page/my-profile";
+@import "page/post";
+@import "page/private-messages";
+@import "page/search";
+@import "page/view-profile";
+@import "page/xyz";
+
+// custom
+@import "custom/carousel";
+@import "custom/engagement";
+@import "custom/explore-categories";
+@import "custom/featured-articles";
+@import "custom/featured-topics";
+@import "custom/horizontal-navigation";
+@import "custom/latest-blogs";
+@import "custom/lazy-load-messages";
+@import "custom/node-browser";
+@import "custom/popular-blogs";
+@import "custom/profile-card";
+@import "custom/tiled-nav";
+@import "custom/top-users";
+@import "custom/trending-messages";
+@import "custom/user-bio";
+@import "custom/user-settings-link";
+@import "custom/vitality";

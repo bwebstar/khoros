@@ -1,0 +1,120 @@
+// Contents copied from: theme_base/sass/component/_user-menu.scss
+.lia-header-nav-component-widget.lia-component-notes-widget-summary-modern,
+.lia-header-nav-component-widget.lia-component-notificationfeed-widget-indicator {
+    float: none;
+    line-height: 22px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    text-align: left;
+    height: auto;
+
+    .lia-link-navigation {
+        color: $dropdown-link-color;
+        display: block;
+        font-size: $font-size-small;
+        padding: $padding-small-vertical $padding-small-horizontal;
+        text-decoration: none;
+
+
+        &:before {
+            padding-left: $padding-small-horizontal;
+            line-height: 22px;
+            font-size: 20px;
+            margin-right: 16px;
+            display: none;
+        }
+
+        &:hover {
+            background-color: $theme-color-primary;
+            color: $theme-color-background;
+        }
+    }
+
+    .lia-header-nav-component-unread-count {
+        padding: 2px;
+        position: absolute;
+        right: auto;
+        top: 15px;
+        text-indent: -999999px;
+        border-radius: 100%;
+        font-size: 6px;
+        left: 8px;
+
+        @include media(desktop) {
+            left: 6px;
+            top: 12px;
+        }
+    }
+}
+
+.lia-menu-user-dropdown .lia-menu-user-nav .lia-link-navigation {
+    font-size: $font-size-small;
+
+    &:before {
+        display: none;
+    }
+}
+
+.lia-component-users-widget-menu.unread {
+    @include li-icon ($fa-var-circle, $pseudo: after, $size: 12px, $color: $badge-bg);
+
+    &:after {
+        position: absolute;
+
+        top: 30px;
+        left: 45px;
+
+        @include media(desktop-and-down) {
+            top: 10px;
+        }
+
+        &:hover {
+            color: $theme-color-background;
+        }
+
+    }
+
+
+}
+
+.lia-header-nav-component-widget.lia-component-notes-widget-summary-modern .lia-link-navigation,
+.lia-header-nav-component-widget.lia-component-notificationfeed-widget-indicator .lia-link-navigation,
+.lia-menu-user-dropdown .lia-menu-user-nav .lia-link-navigation {
+    padding: $padding-small-vertical $theme-space-base;
+    border-bottom: none;
+
+    &:hover {
+        background-color: $theme-color-primary;
+        color: $theme-color-background;
+    }
+
+    @include media(tablet-and-down) {
+        border-bottom: 1px solid $gray-lighter;
+        color: $gray;
+        display: block;
+        font-size: $font-size-h3;
+        padding-bottom: $padding-large-vertical;
+        padding-left: $padding-xl-horizontal;
+        padding-top: $padding-large-vertical;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $dropdown-link-hover-bg;
+            color: $gray;
+        }
+    }
+
+
+
+}
+
+.user-navigation-settings-drop-down-inner>.lia-list-standard {
+    border-radius: 0;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+
+}
+
+.lia-menu-user-slide-out .lia-link-navigation:before {
+    display: none;
+}

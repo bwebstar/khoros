@@ -1,0 +1,42 @@
+// Contents copied from: theme_base/sass/custom/_horizontal-navigation.scss
+.slide-out-menu {
+    padding-top: 8px;
+    display: inline-block;
+
+    .lia-slide-out-nav-menu {
+        float: left;
+
+        .lia-slide-out-nav-menu-wrapper {
+            padding-left: 0;
+            padding-right: 20px;
+
+            @media (min-width: $screen-sm-min) {
+                padding-left: 0;
+                padding-right: 20px;
+            }
+        }
+    }
+}
+
+.lia-slide-out-nav-menu {
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+
+
+    .lia-slide-out-nav-menu-wrapper {
+        @include li-icon-svg($li-svg-community-nav-trigger, $size: $font-size-h3);
+
+        padding: {
+            padding-bottom: 7px;
+            padding-left: 15px;
+            padding-right: 0;
+            padding-top: 7px;
+        }
+
+        &:before {
+            display: block;
+            vertical-align: middle;
+        }
+    }
+}

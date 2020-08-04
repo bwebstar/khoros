@@ -1,0 +1,29 @@
+// Contents copied from: theme_base/sass/common/_alerts.scss
+.lia-panel-feedback-banner-note,
+.lia-panel-feedback-inline-note {
+    color: $theme-color-foreground;
+
+    .lia-link-navigation {
+        color: $theme-color-foreground;
+    }
+}
+
+.lia-panel-feedback-banner-alert,
+.lia-panel-feedback-banner-warning,
+.lia-panel-feedback-banner-note,
+.lia-component-tag-banner,
+.lia-panel-feedback-banner-safe,
+.lia-panel-status-banner-note,
+.lia-quilt-column-feedback .lia-component-common-widget-page-information {
+    border-radius: $border-radius-small;
+    color: $theme-color-foreground;
+}
+
+.mce-container .lia-mce-loader-feedback,
+.lia-ajax-loader-feedback,
+.lia-panel-feedback-banner-warning,
+.lia-panel-feedback-inline-warning,
+.lia-panel-status-banner-note,
+.lia-quilt-column-feedback .lia-component-common-widget-page-information {
+    color: $theme-color-foreground;
+}

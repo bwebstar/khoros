@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quilt layout="forum-topic-message-support" nestable="false" disableTopCssClass="false">
+  <add to="message-header-right">
+    <component id="message-view.widget.action-menu" renderOrder="message-action-menu"/>
+  </add>
+  <add to="message-quick-reply-content-right">
+    <component id="quick-reply"/>
+  </add>
+  <add to="message-post-times-content">
+    <component id="post-date"/>
+  </add>
+  <add to="message-controls-content-left">
+    <component id="kudos-action"/>
+  </add>
+  <add to="message-mod-controls-content-left">
+    <component id="escalate-message-button"/>
+    <component id="promote-message-button"/>
+  </add>
+  <add to="message-mod-controls-content-right">
+    <component id="modbar-toggle"/>
+    <component id="modbar"/>
+  </add>
+  <add to="message-body-content">
+    <component id="user-expert-topics"/>
+    <component id="body-signature-highlight-escalation" useControlHighlightText="true"/>
+    <component id="message-view.widget.labels" useChrome="true" useHeading="true"/>
+    <component id="message-view.widget.tags" useChrome="true" showTagLabelText="true"/>
+    <component id="attachments"/>
+    <component id="me-too"/>
+    <component id="me-too-solution"/>
+    <component id="me-too-support-resolution"/>
+    <component id="media-snippet"/>
+    <component id="product-snippet"/>
+  </add>
+  <add to="message-subject-content">
+    <component id="message-view.widget.subject" wrapper="topic-subject-wrapper" disableSubjectLink="true"/>
+    <component id="solution-link" wrapper="topic-subject-wrapper"/>
+  </add>
+  <add to="message-header-left">
+    <component id="author-avatar"/>
+    <component id="message-view.widget.author-username" wrapper="lia-message-author-with-avatar"/>
+    <component id="author-rank" wrapper="lia-message-author-with-avatar"/>
+  </add>
+  <add to="message-controls-content-right">
+    <component id="accepted-solutions-button"/>
+    <component id="quick-reply-button"/>
+    <component id="message-rating"/>
+  </add>
+</quilt>
